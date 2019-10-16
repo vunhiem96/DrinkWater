@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.TodayFragment"
+    android:orientation="vertical"
+    android:background="#FFF"
+    android:id="@+id/ln_fragment_history">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Next time"
+        android:textColor="#405ED5"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/round_bg_blue"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_time_next_drink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:text="10:00"
+            android:textColor="#252450"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_water_next"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="right"
+            android:text="550ml"
+            android:textColor="#252450"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Records"
+        android:textColor="#405ED5"
+        android:textSize="16sp" />
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="140dp">
+    <RelativeLayout
+        android:id="@+id/rl_record"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/round_bg_blue"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_time_records"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:text="09:00"
+            android:textColor="#252450"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_water_record"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/img_menu"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+550ml"
+            android:textColor="#252450"
+            android:textSize="16sp"
+            android:layout_toLeftOf="@id/img_menu"
+            android:layout_marginRight="10dp" />
+        <ImageView
+            android:id="@+id/img_menu"
+            android:layout_marginEnd="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/menu"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp" />
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:visibility="invisible"
+                android:id="@+id/ln_popup"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="150dp"
+                app:cardCornerRadius="15dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <RelativeLayout
+                        android:id="@+id/rl_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_edit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="16sp"
+                            android:textColor="#252450"
+                            android:text="Edit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F6F8FF" />
+                    <RelativeLayout
+                        android:id="@+id/rl_delete"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_delete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="16sp"
+                            android:textColor="#252450"
+                            android:text="Delete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+</FrameLayout>
+</LinearLayout>

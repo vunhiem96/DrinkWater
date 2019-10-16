@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0000FFFF"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        app:cardCornerRadius="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_remove_dialog_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/remove" />
+
+                <ImageView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/img_dialog_main" />
+
+                <TextView
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="bold"
+                    android:id="@+id/tv_click"
+                    android:layout_marginLeft="30dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="20sp"
+                    android:textColor="#2329D6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Drink water\nand click\nbutton\nto save" />
+                <ImageView
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="75dp"
+                    android:layout_below="@id/tv_click"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_dialog_main2"/>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+<ImageView
+    android:layout_marginTop="-10dp"
+    android:layout_centerHorizontal="true"
+    android:src="@drawable/polygon"
+    android:layout_below="@id/card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+</RelativeLayout>

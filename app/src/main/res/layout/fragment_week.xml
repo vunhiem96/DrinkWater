@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical"
+    android:weightSum="10"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_weight="0.8"
+        android:background="@drawable/round_bg_blue"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="This Week"
+            android:textColor="#252450"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="3.3">
+<com.github.mikephil.charting.charts.BarChart
+    android:id="@+id/barChart"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="@dimen/_52sdp"
+                android:layout_height="@dimen/_52sdp"
+                android:padding="5dp"
+                android:id="@+id/img1"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/ic_water_history" />
+
+            <TextView
+                android:id="@+id/tv_ml_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_toRightOf="@id/img1"
+                android:text="1500 ml"
+                android:textColor="#2329D6"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textSize="@dimen/_9ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_ml_week"
+                android:layout_toRightOf="@id/img1"
+                android:text="Average intake" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:padding="5dp"
+                android:id="@+id/img2"
+                android:layout_width="@dimen/_52sdp"
+                android:layout_height="@dimen/_52sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/ic_two_history" />
+
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_toRightOf="@id/img2"
+                android:text="5/Day"
+                android:textColor="#2329D6"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textSize="@dimen/_9ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_count"
+                android:layout_toRightOf="@id/img2"
+                android:text="Drink frequency" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:padding="5dp"
+                android:id="@+id/img"
+                android:layout_width="@dimen/_52sdp"
+                android:layout_height="@dimen/_52sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/icon_three_fragmen_history" />
+
+            <TextView
+                android:id="@+id/tv_completion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_toRightOf="@id/img"
+                android:text="60%"
+                android:textColor="#2329D6"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textSize="@dimen/_9ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_completion"
+                android:layout_toRightOf="@id/img"
+                android:text="Average completion" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_marginHorizontal="15dp"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/round_bg">
+
+                <TextView
+                    android:textSize="@dimen/_12ssp"
+                    android:gravity="center_vertical"
+                    android:textColor="#FFF"
+                    android:layout_marginLeft="@dimen/_80ssp"
+                    android:lines="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Your hydrate habits are better than
+2% of the population" />
+            </LinearLayout>
+            <ImageView
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:src="@drawable/ic_historyfour_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+
+    </FrameLayout>
+
+
+</LinearLayout>

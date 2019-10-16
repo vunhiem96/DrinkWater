@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="3"
+    android:orientation="vertical"
+    tools:context=".screen.dailywater.DailyWaterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3">
+        <RelativeLayout
+            android:id="@+id/rl_ml"
+            android:layout_centerInParent="true"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_55sdp">
+            <TextView
+                android:layout_marginTop="@dimen/_16ssp"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="#252450"
+                android:text="ml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/tv_water_need_drink"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1900"
+                        android:textColor="#252450"
+                        android:textSize="@dimen/_50ssp"
+                        android:textStyle="bold"
+                        />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/rl_ml"
+            android:layout_width="@dimen/_145sdp"
+            android:layout_height="@dimen/_30sdp">
+            <TextView
+                android:layout_marginStart="@dimen/_3sdp"
+                android:textSize="@dimen/_13ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="#707070"
+                android:text="Daily water drinking goal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_3sdp" />
+        </RelativeLayout>
+<!--<TextView-->
+<!--    android:layout_marginBottom="@dimen/_38sdp"-->
+<!--    android:layout_above="@id/tv_dailywater"-->
+<!--    android:layout_toRightOf="@id/tv_water_need_drink"-->
+<!--    android:textSize="20sp"-->
+<!--    android:textColor="#252450"-->
+<!--    android:text="ml"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/tv_water_need_drink"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_above="@id/tv_dailywater"-->
+<!--            android:layout_marginStart="@dimen/_90sdp"-->
+<!--            android:text="1900"-->
+<!--            android:textColor="#252450"-->
+<!--            android:textSize="70sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_marginLeft="@dimen/_90sdp" />-->
+
+<!--        <TextView-->
+<!--            android:layout_marginStart="@dimen/_95sdp"-->
+<!--            android:id="@+id/tv_dailywater"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginBottom="@dimen/_40sdp"-->
+<!--            android:text="Daily water drinking goal"-->
+<!--            android:textColor="#707070"-->
+<!--            android:textSize="@dimen/_12ssp"-->
+<!--            android:layout_marginLeft="@dimen/_95sdp" />-->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="-27dp"
+            android:src="@drawable/img_dailywater" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7">
+<Button
+    android:layout_marginTop="@dimen/_15sdp"
+    android:id="@+id/btn_dailywater"
+    android:textColor="#FFF"
+    android:text="ACCEPT"
+    android:background="@drawable/round_bg_button"
+    android:layout_width="@dimen/_200sdp"
+    android:layout_height="@dimen/_40sdp"/>
+    </LinearLayout>
+
+</LinearLayout>

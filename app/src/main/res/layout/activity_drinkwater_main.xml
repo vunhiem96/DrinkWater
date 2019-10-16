@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.dailywatermain.DrinkwaterMainActivity">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginBottom="-45dp"
+                android:layout_marginRight="-20dp"
+                android:layout_marginLeft="-20dp"
+                android:src="@drawable/img_bottom_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_add"
+                    android:layout_marginBottom="30dp"
+                    android:src="@drawable/ic_circle_main"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/img_100"
+                    android:layout_below="@id/tv_test"
+                    android:src="@drawable/ic_100"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/tv_test"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ToggleButton
+                    android:id="@+id/tgbtn_waterdaily"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="52dp"
+                    android:background="@drawable/togglebutton_dailywater"
+                    android:checked="true"
+                    android:padding="4dp"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <ToggleButton
+                    android:id="@+id/tgbtn_history"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="52dp"
+                    android:layout_toEndOf="@id/tgbtn_waterdaily"
+                    android:layout_toRightOf="@id/tgbtn_waterdaily"
+                    android:background="@drawable/togglebutton_history"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <ToggleButton
+                    android:id="@+id/tgbtn_setting"
+                    android:layout_width="33dp"
+                    android:layout_height="33dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="53dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/togglebutton_setting"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <ToggleButton
+                    android:id="@+id/tgbtn_weight"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="52dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_toLeftOf="@id/tgbtn_setting"
+                    android:background="@drawable/togglebutton_weight"
+                    android:textOff=""
+                    android:textOn=""/>
+            </RelativeLayout>
+        </FrameLayout>
+    </RelativeLayout>
+</RelativeLayout>

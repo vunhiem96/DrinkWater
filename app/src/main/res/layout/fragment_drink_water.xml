@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_weight="2"
+    android:background="#FFF"
+    android:orientation="vertical"
+    tools:context=".fragment.DrinkWaterFragment"
+    android:id="@+id/fragment_home">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.1">
+
+        <RelativeLayout
+            android:clickable="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+<!--            <com.bozapro.circularsliderrange.CircularSliderRange-->
+
+<!--                android:clickable="false"-->
+<!--                android:padding="6dp"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:id="@+id/circular"-->
+<!--                android:layout_width="@dimen/_185sdp"-->
+<!--                android:layout_height="@dimen/_185sdp"-->
+<!--                app:arc_color="#4768D9"-->
+<!--                app:arc_dash_size="@dimen/_12sdp"-->
+<!--                app:border_color="#E1EBFD"-->
+<!--                app:border_thickness="@dimen/_12sdp"-->
+<!--                app:end_angle="-15"-->
+<!--                app:end_thumb_size="20dp"-->
+<!--                app:end_thumb_image="@drawable/hoho"-->
+<!--                app:start_angle="-90"-->
+<!--                app:start_thumb_image="@drawable/hoho"-->
+<!--                app:start_thumb_size="19dp"-->
+<!--                app:thumb_size="15dp"-->
+<!--                />-->
+            <hiennguyen.me.circleseekbar.CircleSeekBar
+                android:clickable="false"
+                android:layout_centerInParent="true"
+                android:id="@+id/circular"
+                android:layout_width="@dimen/_207sdp"
+                android:layout_height="@dimen/_197sdp"
+                android:padding="@dimen/_36sdp"
+                app:csb_arcColor="#E1EBFD"
+                app:csb_arcWidth="@dimen/_8sdp"
+                app:csb_thumbDrawable="@drawable/hoho"
+                app:csb_max="100"
+                app:csb_min="0"
+                app:csb_progress="300"
+                app:csb_progressColor="#4768D9"
+                app:csb_progressWidth="@dimen/_12sdp"
+                app:csb_step="5"
+                app:csb_textColor="@color/color_text"
+                app:csb_textSize="36sp"
+                app:csb_thumbSize="@dimen/_15sdp"
+
+               />
+            <me.itangqi.waveloadingview.WaveLoadingView
+                android:id="@+id/waveView"
+                android:layout_width="@dimen/_152sdp"
+                android:layout_height="@dimen/_152sdp"
+                android:layout_centerInParent="true"
+                app:wlv_borderWidth="0dp"
+                app:wlv_progressValue="35"
+                app:wlv_round_rectangle="true"
+                app:wlv_shapeType="circle"
+                app:wlv_titleBottomSize="108dp"
+                app:wlv_titleCenterColor="#FFFFFF"
+                app:wlv_titleCenterSize="108dp"
+                app:wlv_titleCenterStrokeColor="#FFFFFF"
+                app:wlv_titleCenterStrokeWidth="2dp"
+                app:wlv_triangle_direction="north"
+                app:wlv_waveAmplitude="35"
+                app:wlv_waveColor="#5881E3" />
+
+            <TextView
+
+                android:id="@+id/tv_water_drank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="0"
+                android:textColor="#2329D6"
+                android:textSize="@dimen/_32ssp" />
+
+            <TextView
+                android:id="@+id/tv_ml_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_water_drank"
+                android:text="ml"
+                android:textColor="#2329D6"
+                android:textSize="@dimen/_13sdp" />
+
+            <ImageView
+                android:padding="1dp"
+                android:layout_marginEnd="5dp"
+                android:id="@+id/img_last_drink"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:src="@drawable/ic_last_drink"
+                android:layout_marginRight="5dp" />
+
+            <TextView
+                android:textSize="@dimen/_11ssp"
+                android:id="@+id/tv_time_last"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/_18sdp"
+                android:layout_toEndOf="@id/img_last_drink"
+                android:layout_toRightOf="@id/img_last_drink"
+                android:text="Last drink 20:30"
+                android:textColor="#252450" />
+
+            <TextView
+                android:textSize="@dimen/_11ssp"
+                android:id="@+id/tv_daily_gold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="@dimen/_18sdp"
+                android:text="Daily goal: 1800 ml"
+                android:textColor="#252450" />
+
+            <ImageView
+                android:padding="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_toStartOf="@id/tv_daily_gold"
+                android:layout_toLeftOf="@id/tv_daily_gold"
+                android:src="@drawable/ic_daily_goal"
+                android:layout_marginRight="5dp" />
+
+        </RelativeLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:background="#F6F8FF"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:text="Choose your cup"
+            android:textColor="#252450"
+            android:textSize="16sp" />
+
+        <HorizontalScrollView
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/tg_btn_100"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/togglebutton_water100"
+                    android:checked="true"
+                    android:textOff=""
+                    android:textOn="">
+
+                </ToggleButton>
+
+                <ToggleButton
+                    android:id="@+id/tg_btn_200"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:background="@drawable/togglebutton_water200"
+                    android:textOff=""
+                    android:textOn="">
+
+                </ToggleButton>
+
+                <ToggleButton
+                    android:id="@+id/tgbtn_300"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:background="@drawable/togglebutton_water300"
+                    android:textOff=""
+                    android:textOn="">
+
+                </ToggleButton>
+
+                <ToggleButton
+                    android:id="@+id/tgbtn_400"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:background="@drawable/togglebutton_water400"
+                    android:textOff=""
+                    android:textOn="">
+
+                </ToggleButton>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+</LinearLayout>
