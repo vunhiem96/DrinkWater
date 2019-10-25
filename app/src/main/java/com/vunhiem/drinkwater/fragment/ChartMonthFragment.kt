@@ -42,6 +42,7 @@ class ChartMonthFragment : Fragment() {
         mChart.setDrawGridBackground(false)
         mChart.isDragEnabled = true
         mChart.setScaleEnabled(false)
+        mChart.getAxisRight().setEnabled(false)
         val barEntries2: ArrayList<Entry> = ArrayList()
         barEntries2.add(Entry(0.toFloat(), db.getWeightMonth(1).weight!!.toFloat()))
         barEntries2.add(Entry(1.toFloat(), db.getWeightMonth(2).weight!!.toFloat()))

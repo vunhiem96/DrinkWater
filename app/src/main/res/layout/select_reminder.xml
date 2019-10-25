@@ -113,7 +113,7 @@
                 android:layout_centerVertical="true"
                 android:textColor="#000"
                 android:textSize="16sp"
-                android:text="Ringtine with vibrate"
+                android:text="Ringtone with vibrate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <ToggleButton
@@ -136,6 +136,7 @@
                 android:background="#F6F8FF" />
         </RelativeLayout>
         <Button
+            android:textAllCaps="false"
             android:id="@+id/btn_accept"
             android:layout_marginBottom="15dp"
             android:textColor="#FFF"

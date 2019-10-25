@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2B46C9"
@@ -23,8 +22,8 @@
 
         <ImageView
             android:id="@+id/setweight"
-            android:layout_width="@dimen/_22sdp"
-            android:layout_height="@dimen/_22sdp"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:layout_alignParentRight="true"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="15dp"
@@ -33,13 +32,14 @@
     </RelativeLayout>
 
     <TextView
-        android:layout_marginBottom="-10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginBottom="-5dp"
         android:text="Current"
         android:textColor="#97a0eb"
-        android:textSize="@dimen/_14ssp" />
+        android:textSize="@dimen/_11ssp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -52,7 +52,7 @@
             android:layout_centerHorizontal="true"
             android:text="80"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/_49ssp" />
+            android:textSize="@dimen/_40ssp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,11 +66,11 @@
 
         <LinearLayout
             android:id="@+id/ln_addweight"
-            android:layout_marginTop="-5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_kg_weightfragment"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="-5dp"
             android:background="@drawable/round_bg_blue2">
 
             <TextView
@@ -80,7 +80,7 @@
                 android:paddingVertical="5dp"
                 android:text="+Add weight"
                 android:textColor="#FF9472"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_10ssp" />
 
         </LinearLayout>
     </RelativeLayout>
@@ -88,10 +88,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-       >
+        android:layout_marginHorizontal="50dp">
 
         <LinearLayout
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -100,9 +100,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginLeft="@dimen/_3sdp"
                 android:text="Target"
                 android:textColor="#97a0eb"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_12ssp" />
 
             <TextView
                 android:id="@+id/tv_target_kg"
@@ -125,12 +127,14 @@
                 android:layout_height="wrap_content"
                 android:text="Remaining"
                 android:textColor="#97a0eb"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_12ssp" />
 
             <TextView
                 android:id="@+id/tv_reminder_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
                 android:text="20.5 kg"
                 android:textColor="#FFFF"
                 android:textSize="@dimen/_14ssp" />
@@ -138,13 +142,14 @@
 
         <View
             android:layout_width="1dp"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_centerHorizontal="true"
-            android:background="#707070" />
+            android:layout_centerVertical="true"
+            android:background="#97a0eb" />
     </RelativeLayout>
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -189,170 +194,145 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1.4">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-                <ImageView
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/img_bmi"
-                    android:layout_width="@dimen/_280sdp"
-                    android:layout_height="45dp"
-                    android:src="@drawable/ic_bmi" />
 
                 <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="@dimen/_280sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <ImageView
-                        android:id="@+id/bmi_fat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="@dimen/_220sdp"
-                        android:src="@drawable/ic_arrow_bmi" />
-                    <ImageView
-                        android:id="@+id/img_bmi_normal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="@dimen/_160sdp"
-                        android:src="@drawable/ic_arrow_bmi" />
-                    <ImageView
-                        android:id="@+id/imb_bmi_small2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="@dimen/_103sdp"
-                        android:src="@drawable/ic_arrow_bmi" />
-                    <ImageView
-                        android:id="@+id/imb_bmi_small"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="@dimen/_46sdp"
-                        android:src="@drawable/ic_arrow_bmi" />
+                        android:id="@+id/img_bmi"
+                        android:layout_width="@dimen/_280sdp"
+                        android:layout_height="45dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_bmi" />
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_280sdp"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true">
+
+                        <ImageView
+                            android:id="@+id/bmi_fat"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="@dimen/_220sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:src="@drawable/img_bmi4" />
+
+                        <ImageView
+
+                            android:id="@+id/img_bmi_normal"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="@dimen/_160sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:src="@drawable/ic_arrow_bmi" />
+
+                        <ImageView
+                            android:id="@+id/imb_bmi_small2"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="@dimen/_103sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:src="@drawable/img_bmi2" />
+
+                        <ImageView
+                            android:id="@+id/imb_bmi_small"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="@dimen/_46sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:src="@drawable/img_bmi1" />
+                    </RelativeLayout>
                 </RelativeLayout>
-</RelativeLayout>
             </FrameLayout>
         </LinearLayout>
 
 
         <LinearLayout
-            android:layout_weight="0.5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_weight="0.5"
             android:background="#FFF"
             android:orientation="horizontal"
-            android:weightSum="6">
+            android:weightSum="3">
 
-            <LinearLayout
+
+            <ToggleButton
+                android:id="@+id/tgbtn_week"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+                android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:background="#FFF">
+                android:background="@drawable/togglebutton_today2"
+                android:checked="true"
+                android:padding="2dp"
+                android:textAllCaps="false"
+                android:textColor="@drawable/textcolor2"
+                android:textOff="Week"
+                android:textOn="Week"
 
-                <ToggleButton
-                    android:id="@+id/tgbtn_week"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/togglebutton_today2"
-                    android:checked="true"
-                    android:padding="2dp"
-                    android:textAllCaps="false"
-                    android:textColor="@drawable/textcolor2"
-                    android:textOff="Week"
-                    android:textOn="Week"
+                />
 
-                    />
-            </LinearLayout>
 
-            <LinearLayout
+            <ToggleButton
+                android:id="@+id/tgbtn_month"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:background="#FFF">
+                android:background="@drawable/togglebutton_today2"
+                android:padding="2dp"
+                android:textAllCaps="false"
+                android:textColor="@drawable/textcolor2"
+                android:textOff="Month"
+                android:textOn="Month" />
 
-                <ToggleButton
-                    android:id="@+id/tgbtn_month"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/togglebutton_today2"
-                    android:padding="2dp"
-                    android:textAllCaps="false"
-                    android:textColor="@drawable/textcolor2"
-                    android:textOff="Month"
-                    android:textOn="Month" />
-            </LinearLayout>
 
-            <LinearLayout
+            <ToggleButton
+
+                android:id="@+id/tgbtn_year"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:background="#FFF">
+                android:background="@drawable/togglebutton_today2"
+                android:textAllCaps="false"
+                android:textColor="@drawable/textcolor2"
+                android:textOff="Year"
+                android:textOn="Year"
 
-                <ToggleButton
-                    android:id="@+id/tgbtn_year"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/togglebutton_today2"
-                    android:padding="2dp"
-                    android:textAllCaps="false"
-                    android:textColor="@drawable/textcolor2"
-                    android:textOff="Year"
-                    android:textOn="Year"
-
-                    />
-            </LinearLayout>
+                />
 
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="10dp"
-                android:layout_weight="3">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="This Year"
-                    android:textColor="#252450"
-                    android:textSize="@dimen/_12ssp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_arrowback_weight" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_arrownext_weight" />
-            </RelativeLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_weight="2.5"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="2.5">
+
             <FrameLayout
                 android:id="@+id/container3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <com.github.mikephil.charting.charts.LineChart
-                    android:layout_marginTop="10dp"
                     android:id="@+id/lineChart"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp" />
             </FrameLayout>
 
         </LinearLayout>
 
     </LinearLayout>
-<!--    </ScrollView>-->
+    <!--    </ScrollView>-->
 </LinearLayout>

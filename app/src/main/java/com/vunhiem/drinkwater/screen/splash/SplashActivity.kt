@@ -17,6 +17,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         Glide.with(this).load(R.drawable.text_kolor_fox).into(tv)
+        Glide.with(this).load(R.drawable.wave).into(img_wave)
         splashScreen()
     }
 

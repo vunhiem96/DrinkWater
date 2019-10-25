@@ -26,6 +26,7 @@ class WeekFragment : Fragment() {
     lateinit var db:DBHelper
     lateinit var list:ArrayList<Int>
     lateinit var tvCount:TextView
+    var textChart:String=""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -90,6 +91,7 @@ class WeekFragment : Fragment() {
         var sauCom = sau.waterdrinkCompletion
         var bayCom = bay.waterdrinkCompletion
          if(count != 0){
+
              var countTBC = (haicount + bacount + tucount + namcount + saucount + baycount) / count
              var waterTBC = (haiml + baml + tuml + namml + sauml + bayml) / count
              var completeTBC =
@@ -97,10 +99,12 @@ class WeekFragment : Fragment() {
              tvCount.text = "$countTBC /Day"
              tvMl.text = "$waterTBC ml"
              tvComplete.text = "$completeTBC %"
+             textChart = "Weeks"
          }else{
              tvCount.text = "0 /Day"
              tvMl.text = "0 ml"
              tvComplete.text = "0 %"
+             textChart = "Data will saved at end of the day"
          }
 
 
@@ -111,6 +115,8 @@ class WeekFragment : Fragment() {
         mChart.setDrawValueAboveBar(false)
         mChart.setPinchZoom(false)
         mChart.setDrawGridBackground(false)
+        mChart.getAxisLeft().setStartAtZero(true)
+        mChart.getAxisRight().setEnabled(false)
         val barEntries:ArrayList<BarEntry> = ArrayList()
         barEntries.add(BarEntry(0.toFloat(), hai.waterdrinkCompletion!!.toFloat()))
         barEntries.add(BarEntry(1.toFloat(), ba.waterdrinkCompletion!!.toFloat()))
@@ -120,7 +126,7 @@ class WeekFragment : Fragment() {
         barEntries.add(BarEntry(5.toFloat(), bay.waterdrinkCompletion!!.toFloat()))
         barEntries.add(BarEntry(6.toFloat(), cn.waterdrinkCompletion!!.toFloat()))
 
-        val barDataSet = BarDataSet(barEntries, "Weeks")
+        val barDataSet = BarDataSet(barEntries, textChart)
         val data= BarData(barDataSet)
         data.barWidth=0.5f
         data.setDrawValues(false)

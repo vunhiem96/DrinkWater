@@ -17,6 +17,9 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.vunhiem.drinkwater.R
 import com.vunhiem.drinkwater.db.DBHelper
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MonthFragment : Fragment() {
@@ -26,6 +29,7 @@ class MonthFragment : Fragment() {
     lateinit var tvCompleteMonth:TextView
     lateinit var tvMlWeek:TextView
     lateinit var tvCount:TextView
+    var textChart:String=""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +45,9 @@ class MonthFragment : Fragment() {
     }
 
     private fun loadDataChart() {
+
+        var month = ""
+
         db = context?.let { DBHelper(it) }!!
 
         var mot = db.getWaterMonth(1).waterdrinkCompletion!!.toInt()
@@ -131,10 +138,12 @@ class MonthFragment : Fragment() {
             var countDrink = db.getAllCountMonth()
             var countTBC = countDrink/count
             tvCount.text = "$countTBC /Day"
+            textChart ="Month"
         }else{
             tvCount.text = "0 /Day"
             tvMlWeek.text = "0 ml"
             tvCompleteMonth.text = "0 %"
+            textChart = "Data will saved at end of the day"
         }
 
 
@@ -146,6 +155,8 @@ class MonthFragment : Fragment() {
         mChart.setDrawValueAboveBar(false)
         mChart.setPinchZoom(false)
         mChart.setDrawGridBackground(false)
+        mChart.getAxisLeft().setStartAtZero(true)
+        mChart.getAxisRight().setEnabled(false)
         val barEntries: ArrayList<BarEntry> = ArrayList()
         barEntries.add(BarEntry(0.toFloat(), mot!!.toFloat()))
         barEntries.add(BarEntry(1.toFloat(), hai!!.toFloat()))
@@ -179,7 +190,7 @@ class MonthFragment : Fragment() {
         barEntries.add(BarEntry(29.toFloat(), bamuoi!!.toFloat()))
         barEntries.add(BarEntry(30.toFloat(), ba1!!.toFloat()))
 
-        val barDataSet = BarDataSet(barEntries, "Month")
+        val barDataSet = BarDataSet(barEntries, textChart)
         val data = BarData(barDataSet)
 
         data.setDrawValues(false)

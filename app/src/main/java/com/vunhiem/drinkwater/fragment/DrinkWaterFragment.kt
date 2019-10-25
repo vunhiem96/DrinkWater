@@ -6,39 +6,40 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.bozapro.circularsliderrange.CircularSliderRange
 import com.vunhiem.drinkwater.R
 import com.vunhiem.drinkwater.utils.AppConfig
 import hiennguyen.me.circleseekbar.CircleSeekBar
+import kotlinx.android.synthetic.main.activity_drinkwater_main.*
 import kotlinx.android.synthetic.main.dialog_home.*
 import kotlinx.android.synthetic.main.fragment_drink_water.*
+import me.itangqi.waveloadingview.WaveLoadingView
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class DrinkWaterFragment : Fragment(){
+class DrinkWaterFragment : Fragment() {
 
     lateinit var tgBtn100: ToggleButton
     lateinit var tgBtn200: ToggleButton
     lateinit var tgBtn300: ToggleButton
     lateinit var tgBtn400: ToggleButton
-    lateinit var circle:CircleSeekBar
-//    var circle: Int = 0
+    lateinit var circle: CircleSeekBar
+    //    var circle: Int = 0
 //    lateinit var circlee: CircularSliderRange
     lateinit var tvWater: TextView
     lateinit var img: ImageView
     lateinit var tvGold: TextView
     lateinit var tvLastDrink: TextView
+    lateinit var waveView:WaveLoadingView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,6 +51,7 @@ class DrinkWaterFragment : Fragment(){
 //        circle = context?.let { AppConfig.getWaterLevel(it) }!!
         img = view.findViewById(com.vunhiem.drinkwater.R.id.img_last_drink)
         tvGold = view.findViewById(com.vunhiem.drinkwater.R.id.tv_daily_gold)
+        waveView = view.findViewById(R.id.waveView)
         tgBtn100 = view.findViewById(R.id.tg_btn_100)
         tgBtn200 = view.findViewById(R.id.tg_btn_200)
         tgBtn300 = view.findViewById(R.id.tgbtn_300)
@@ -58,6 +60,20 @@ class DrinkWaterFragment : Fragment(){
         loadData()
         loadDialog()
         return view
+    }
+
+    override fun onStop() {
+        super.onStop()
+        waveView.cancelAnimation()
+        waveView.visibility = View.INVISIBLE
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        waveView.startAnimation()
+        waveView.visibility = View.VISIBLE
+
     }
 
     private fun loadDialog() {
@@ -100,7 +116,7 @@ class DrinkWaterFragment : Fragment(){
         var waterDrink = AppConfig.getWaterLevel(context!!)!!.toFloat()
         var waterGold = AppConfig.getGoldDrink(context!!)
         val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
-        var waterCompletion = (waterDrink / waterGold2)*100
+        var waterCompletion = (waterDrink / waterGold2) * 100
         var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
 //        var x = circle.currentProgress
         circle.setProgressDisplayAndInvalidate(waterCompletion2!!)
@@ -108,7 +124,7 @@ class DrinkWaterFragment : Fragment(){
 
 
 
-        circle.setOnTouchListener(object : View.OnTouchListener{
+        circle.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
                 return true
             }
@@ -168,7 +184,7 @@ class DrinkWaterFragment : Fragment(){
                 var waterDrink = AppConfig.getWaterLevel(context!!)!!.toFloat()
                 var waterGold = AppConfig.getGoldDrink(context!!)
                 val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
-                var waterCompletion = (waterDrink / waterGold2)*100
+                var waterCompletion = (waterDrink / waterGold2) * 100
                 var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
                 circle.setProgressDisplayAndInvalidate(waterCompletion2!!)
 
@@ -187,20 +203,55 @@ class DrinkWaterFragment : Fragment(){
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        val h = Handler()
-//        h.post(
-//            object : Runnable {
-//                override fun run() {
+        check()
         loadData()
-
-//                    h.postDelayed(this, 1000)
-//                }
-//            })
-
         getText()
         onClick()
 
 
+    }
+
+    private fun check() {
+        var water = AppConfig.getWaterup(context!!)
+        if (water == 100){
+            tg_btn_100.isChecked = true
+            tg_btn_200.isChecked = false
+            tgbtn_300.isChecked = false
+            tgbtn_400.isChecked = false
+            val intent2 = Intent()
+            intent2.action = "imgChange"
+            intent2.putExtra("img", 1)
+            context!!.sendBroadcast(intent2)
+        }
+        else if (water == 200){
+            tg_btn_100.isChecked = false
+            tg_btn_200.isChecked = true
+            tgbtn_300.isChecked = false
+            tgbtn_400.isChecked = false
+            val intent2 = Intent()
+            intent2.action = "imgChange"
+            intent2.putExtra("img", 2)
+            context!!.sendBroadcast(intent2)
+        } else if (water == 300){
+            tg_btn_100.isChecked = false
+            tg_btn_200.isChecked = false
+            tgbtn_300.isChecked = true
+            tgbtn_400.isChecked = false
+            val intent2 = Intent()
+            intent2.action = "imgChange"
+            intent2.putExtra("img", 3)
+            context!!.sendBroadcast(intent2)
+            }
+        else{
+            tg_btn_100.isChecked = false
+            tg_btn_200.isChecked = false
+            tgbtn_300.isChecked = false
+            tgbtn_400.isChecked = true
+            val intent2 = Intent()
+            intent2.action = "imgChange"
+            intent2.putExtra("img", 4)
+            context!!.sendBroadcast(intent2)
+        }
     }
 
 
@@ -246,22 +297,6 @@ class DrinkWaterFragment : Fragment(){
             }
         }
         tgbtn_400.setOnClickListener {
-            //            val mBuilder = NotificationCompat.Builder(context)
-//                .setSmallIcon(R.drawable.ic_water) // notification icon
-//                .setContentTitle("Drink Water!") // title for notification
-//                .setContentText("It's time to drink water") // message for notification
-//                .setAutoCancel(true) // clear notification after click
-//                .setPriority(Notification.PRIORITY_DEFAULT)
-//                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-//                .setDefaults(Notification.DEFAULT_ALL)
-//                .setOngoing(true)
-//            val intent = Intent(context, DrinkwaterMainActivity::class.java)
-//
-//            val pi = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE )
-//            mBuilder.setContentIntent(pi)
-//            val mNotificationManager =
-//                context!!.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//            mNotificationManager.notify(0, mBuilder.build())
             tg_btn_100.isChecked = false
             tg_btn_200.isChecked = false
             tgbtn_300.isChecked = false

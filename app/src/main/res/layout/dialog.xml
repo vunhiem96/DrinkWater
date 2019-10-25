@@ -15,21 +15,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/tv_title_dialog"
+            android:id="@+id/tv_title_dialog3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:text="My weight"
             android:textColor="#2329D6"
-            android:textSize="23sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/_19ssp"
+             />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="100dp">
             <EditText
-                android:hint="80"
                 android:backgroundTint="#E6ECFF"
                 android:cursorVisible="false"
                 android:inputType="numberDecimal"
@@ -54,6 +53,7 @@
 
         </RelativeLayout>
         <Button
+            android:textAllCaps="false"
             android:id="@+id/btn_accept"
             android:layout_marginBottom="15dp"
             android:textColor="#FFF"

@@ -68,6 +68,7 @@ class ChartYearFragment : Fragment() {
         mChart.getXAxis().setDrawGridLines(false)
         mChart.getAxisLeft().setDrawGridLines(true)
         mChart.getAxisRight().setDrawGridLines(true)
+        mChart.getAxisRight().setEnabled(false)
 
         mChart.data.isHighlightEnabled = false
         val xAxis: XAxis = mChart.xAxis

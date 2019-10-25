@@ -26,8 +26,8 @@
                 android:layout_marginTop="13dp"
                 android:text="@string/rewrite_water_intake"
                 android:textColor="#2329D6"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_19sdp"
+                 />
 
             <ImageView
                 android:layout_width="wrap_content"

@@ -9,7 +9,7 @@
     android:weightSum="10"
     android:background="#405ED5">
 <RelativeLayout
-    android:layout_weight="6"
+    android:layout_weight="5"
     android:layout_width="match_parent"
     android:layout_height="0dp">
     <ImageView
@@ -20,7 +20,7 @@
 
 </RelativeLayout>
     <RelativeLayout
-        android:layout_weight="2.5"
+        android:layout_weight="3"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 <TextView
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
 <Button
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="@dimen/_4sdp"
     android:id="@+id/btn_splash2"
     android:background="@drawable/round_bg_button_splash"
     android:textColor="#FFF"

@@ -30,7 +30,8 @@ class DailyWaterActivity : AppCompatActivity() {
 
     private fun loadData() {
         var x = AppConfig.getWeight(this@DailyWaterActivity)
-        val y = x!!.replace("[^\\d.]".toRegex(), "").toInt()
+        val y1 = x!!.replace("[^\\d.]".toRegex(), "").toFloat()
+        val y = y1.toInt()
         var ml = y/0.03
         val twoDForm = DecimalFormat("#")
         var xx = java.lang.Double.valueOf(twoDForm.format(ml)).toInt()

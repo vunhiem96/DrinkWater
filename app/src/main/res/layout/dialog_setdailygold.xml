@@ -22,15 +22,15 @@
             android:layout_marginTop="15dp"
             android:text="Daily Gold"
             android:textColor="#2329D6"
-            android:textSize="@dimen/_18ssp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/_19ssp"
+           />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="100dp">
             <EditText
-                android:backgroundTint="#E6ECFF"
                 android:cursorVisible="false"
+                android:backgroundTint="#E6ECFF"
                 android:inputType="number"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/edt_daily_gold"
@@ -53,6 +53,7 @@
 
         </RelativeLayout>
         <Button
+            android:textAllCaps="false"
             android:id="@+id/btn_accept_daily"
             android:layout_marginBottom="15dp"
             android:textColor="#FFF"

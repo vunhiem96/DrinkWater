@@ -25,8 +25,8 @@
                 android:layout_marginTop="15dp"
                 android:text="Wake-up time"
                 android:textColor="#2329D6"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_17ssp"
+               />
 
             <LinearLayout
                 android:layout_marginTop="10dp"
@@ -78,6 +78,7 @@
             </LinearLayout>
 
             <Button
+                android:textAllCaps="false"
                 android:id="@+id/btn_accept_time"
                 android:layout_width="170dp"
                 android:layout_height="35dp"

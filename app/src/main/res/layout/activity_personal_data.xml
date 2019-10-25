@@ -220,7 +220,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/img4"
-                android:text="Wake-up Time"
+                android:text="Wake-up time"
                 android:textColor="#252450"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -264,7 +264,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/img5"
-                android:text="Bed Time"
+                android:text="Bed time"
                 android:textColor="#252450"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -303,7 +303,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/img6"
-                android:text="Interval Time"
+                android:text="Interval time"
                 android:textColor="#252450"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -315,7 +315,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
-                android:text="60 min"
+                android:text="1 hour"
                 android:textColor="#2329D6"
                 android:textSize="16dp" />
         </RelativeLayout>
@@ -366,10 +366,10 @@
         android:gravity="center_horizontal">
 
         <Button
+            android:layout_marginTop="@dimen/_20sdp"
             android:id="@+id/btn_next"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_gravity="center_vertical"
             android:background="@drawable/round_bg_button"
             android:text="Next"
             android:textColor="#FFFFFF" />

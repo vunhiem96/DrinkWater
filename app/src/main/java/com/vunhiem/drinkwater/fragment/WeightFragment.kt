@@ -38,6 +38,7 @@ import kotlin.collections.ArrayList
  * A simple [Fragment] subclass.
  */
 class WeightFragment : Fragment() {
+    var check:Boolean=true
     lateinit var imgSetWeight:LinearLayout
     lateinit var mChart: LineChart
     lateinit var tgWeek: ToggleButton
@@ -53,6 +54,7 @@ class WeightFragment : Fragment() {
     lateinit var tvReminder:TextView
     lateinit var imgSetHeight:ImageView
     lateinit var db:DBHelper
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -190,6 +192,7 @@ class WeightFragment : Fragment() {
     }
 
     private fun loadData() {
+
         var weight = context?.let { AppConfig.getWeight(it) }
         var weightText = weight!!.replace("[^\\d.]".toRegex(), "").toFloat()
 
@@ -226,9 +229,12 @@ class WeightFragment : Fragment() {
             Log.i("vcvccv","$targetWeight2")
             Log.i("vcvccv","$checkWeight")
             var remind = weightText - targetWeight2
-            var remind2 = Math.abs(remind)
-            var remind3 = java.lang.Double.valueOf(twoDForm2.format(remind2))
-            tvReminder.text="$remind3 kg"
+            var remindxx = Math.abs(remind)
+            var z = remindxx * 100
+            var reminder4 = Math.round(z)
+            var reminder3 = (reminder4 / 100f)
+
+            tvReminder.text="$reminder3 kg"
         }else{
             tvTarget.text = "$checkWeight kg"
             var target = checkWeight!!.toFloat()
@@ -290,16 +296,31 @@ class WeightFragment : Fragment() {
             startActivity(intent)
         }
         tgWeek.setOnClickListener {
-            mChart.isInvisible= false
-            tgWeek.isChecked = true
-            tgMonth.isChecked = false
-            tgYear.isChecked = false
-            fragmentManager!!.beginTransaction()
-                .remove(fragmentManager!!.findFragmentById(R.id.container3)!!).commit()
+          if(check==false) {
+              mChart.isInvisible = false
+              tgWeek.isChecked = true
+              tgMonth.isChecked = false
+              tgYear.isChecked = false
+              fragmentManager!!.beginTransaction()
+                  .remove(fragmentManager!!.findFragmentById(R.id.container3)!!).commit()
+              check=true
+
+          }else{
+              tgWeek.isChecked = true
+              tgMonth.isChecked = false
+              tgYear.isChecked = false
+          }
 
 
         }
         tgMonth.setOnClickListener {
+            check=false
+
+
+// alternatively you can use CultureInfo.InvariantCulture:
+
+
+
             mChart.isInvisible= true
             tgWeek.isChecked = false
             tgMonth.isChecked = true
@@ -308,6 +329,9 @@ class WeightFragment : Fragment() {
             addFragment(fragment)
         }
         tgYear.setOnClickListener {
+            check=false
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
             mChart.isInvisible= true
             tgWeek.isChecked = false
             tgMonth.isChecked = false
@@ -324,6 +348,7 @@ class WeightFragment : Fragment() {
         mChart.setDrawGridBackground(false)
         mChart.isDragEnabled = true
         mChart.setScaleEnabled(false)
+        mChart.getAxisRight().setEnabled(false)
         val barEntries: ArrayList<Entry> = ArrayList()
 
         barEntries.add(Entry(0.toFloat(), db.getWeightDay(2).weight!!.toFloat()))

@@ -22,8 +22,8 @@
             android:layout_marginTop="15dp"
             android:text="My weight"
             android:textColor="#2329D6"
-            android:textSize="23sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/_19ssp"
+          />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -54,6 +54,7 @@
 
         </RelativeLayout>
         <Button
+            android:textAllCaps="false"
             android:id="@+id/btn_accept_daily"
             android:layout_marginBottom="15dp"
             android:textColor="#FFF"

@@ -10,7 +10,7 @@
     android:weightSum="10">
 
     <RelativeLayout
-        android:layout_weight="0.5"
+        android:layout_weight="0.7"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="#2B46C9">
@@ -18,7 +18,7 @@
     android:id="@+id/back"
     android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginStart="20dp"
-    android:src="@drawable/arrowleft"
+    android:src="@drawable/back_while"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginLeft="20dp" />
@@ -29,7 +29,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:text="Weight"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="@dimen/_17sdp" />
 
         <ImageView
             android:id="@+id/img_setheight"
@@ -43,10 +43,10 @@
     </RelativeLayout>
 
     <CalendarView
+         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/round_bg_weight"
-        android:layout_marginTop="15dp"
         android:layout_weight="5"
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
@@ -57,84 +57,91 @@
         app:mcv_tileSize="30sp"
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="15dp"/>
+
     <LinearLayout
-        android:background="@drawable/img_weightfragment"
-        android:layout_weight="3"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-30dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_weight="3"
+        android:background="@drawable/round_bg_while3"
         android:gravity="center"
         android:orientation="horizontal">
+
         <TextView
-            android:visibility="invisible"
-            android:layout_marginLeft="15dp"
-            android:textStyle="bold"
-            android:textColor="#2329D6"
-            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kg" />
+            android:layout_marginLeft="15dp"
+            android:text="Kg"
+            android:textColor="#2329D6"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
 
         <com.shawnlin.numberpicker.NumberPicker
 
             android:id="@+id/number_picker_weighr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:np_width="64dp"
-            app:np_height="180dp"
             app:np_dividerColor="#ADAAAA"
+            app:np_height="180dp"
             app:np_max="150"
             app:np_min="15"
             app:np_selectedTextColor="#2329D6"
             app:np_selectedTextSize="20sp"
             app:np_textColor="#707070"
             app:np_textSize="18sp"
-            app:np_value="80" />
+            app:np_value="80"
+            app:np_width="64dp" />
+
         <TextView
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:textSize="21sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="." />
+            android:text="."
+            android:textColor="#000"
+            android:textSize="21sp"
+            android:textStyle="bold" />
 
         <com.shawnlin.numberpicker.NumberPicker
 
             android:id="@+id/number_picker2_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:np_width="64dp"
-            app:np_height="180dp"
             app:np_dividerColor="#ADAAAA"
+            app:np_height="180dp"
             app:np_max="9"
             app:np_min="0"
             app:np_selectedTextColor="#2329D6"
             app:np_selectedTextSize="20sp"
             app:np_textColor="#707070"
             app:np_textSize="18sp"
-            app:np_value="0" />
+            app:np_value="0"
+            app:np_width="64dp" />
+
         <TextView
-            android:layout_marginLeft="15dp"
-            android:textStyle="bold"
-            android:textColor="#2329D6"
-            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kg" />
+            android:layout_marginLeft="15dp"
+            android:text="Kg"
+            android:textColor="#2329D6"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
+
     <LinearLayout
         android:gravity="center_horizontal"
         android:background="#FFF"
-        android:layout_weight="1.5"
+        android:layout_weight="1.7"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 <Button
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="@dimen/_20sdp"
     android:id="@+id/btn_save"
     android:text="Save"
+    android:textColor="#FFF"
     android:background="@drawable/round_bg_button"
-    android:layout_width="200dp"
-    android:layout_height="wrap_content"/>
+    android:layout_width="@dimen/_180sdp"
+    android:layout_height="@dimen/_40sdp"/>
     </LinearLayout>
 </LinearLayout>

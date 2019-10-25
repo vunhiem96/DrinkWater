@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:layout_weight="3"
     android:orientation="vertical"
-    tools:context=".screen.dailywater.DailyWaterActivity">
+    tools:context=".screen.dailywater.DailyWaterActivity"
+    android:background="#FFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -89,7 +90,7 @@
         android:layout_weight="1">
 
         <ImageView
-            android:layout_marginTop="@dimen/_15sdp"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -98,12 +99,12 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.7">
 <Button
-    android:layout_marginTop="@dimen/_15sdp"
+    android:layout_marginTop="@dimen/_20sdp"
     android:id="@+id/btn_dailywater"
     android:textColor="#FFF"
     android:text="ACCEPT"
