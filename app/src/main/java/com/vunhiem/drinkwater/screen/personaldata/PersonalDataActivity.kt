@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.select_gender.btn_accept
 
 
 class PersonalDataActivity : AppCompatActivity(), waterDrank {
+    var temp = 0
     override fun textChange(water: String) {
         tv_wavep_main.text = water
     }
@@ -129,7 +130,7 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                         handler.postDelayed({
                             mAlertDialog.tv_title_dialog3.text = "My weight"
                             edtKg!!.text=null
-                        }, 3000)
+                        }, 500 )
                     } else {
                         var x = textKg.toFloat()
                         if (10 < x && x < 200) {
@@ -141,7 +142,7 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                             handler.postDelayed({
                                 mAlertDialog.tv_title_dialog3.text = "My weight"
                                 edtKg!!.text=null
-                            }, 3000)
+                            }, 500)
                         }
                     }
                 } else {
@@ -157,7 +158,6 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
             val mBuilder = AlertDialog.Builder(this)
                 .setView(mDialogView)
             val mAlertDialog = mBuilder.show()
-            mAlertDialog.setCanceledOnTouchOutside(false)
             val y = tv_cm_main.text!!.replace("[^\\d.]".toRegex(), "").toFloat()
             edtKg = mAlertDialog.edt_kg
             edtKg!!.setText(y.toString())
@@ -193,7 +193,7 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                         handler.postDelayed({
                             mAlertDialog.tv_title_dialog3.text = "My height"
                             edtKg!!.text=null
-                        }, 3000)
+                        }, 500)
                     } else {
                         var y = textCm.toFloat()
                         if (y > 30 && y < 250) {
@@ -205,7 +205,7 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                             handler.postDelayed({
                                 mAlertDialog.tv_title_dialog3.text = "My height"
                                 edtKg!!.text=null
-                            }, 3000)
+                            }, 500)
                         }
                     }
                 } else {
@@ -223,9 +223,15 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
             val mBuilder = AlertDialog.Builder(this)
                 .setView(mDialogView)
             val mAlertDialog = mBuilder.show()
-            mAlertDialog.setCanceledOnTouchOutside(false)
-            mAlertDialog.number_picker.value = hhwake
-            mAlertDialog.number_picker2.value = mmwake
+
+            var currentString =  AppConfig.getWakeUp(this)
+            var separated =
+                currentString!!.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            var x = separated[0].toInt()// this will contain "Fruit"
+            var y = separated[1].toInt()
+
+            mAlertDialog.number_picker.value = x
+            mAlertDialog.number_picker2.value = y
             mAlertDialog.number_picker2.setFormatter(R.string.number_picker_formatter)
             mAlertDialog.number_picker.setFormatter(R.string.number_picker_formatter)
             mAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -281,7 +287,8 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                 } else {
                     tv_wavep_main.text = "$hhwake:$mmwake"
                 }
-
+              var wakeUpTime = tv_wavep_main.text.toString()
+                AppConfig.setWakeUp(wakeUpTime,this)
                 mAlertDialog.dismiss()
             }
         }
@@ -292,11 +299,16 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                 .setView(mDialogView)
             val mAlertDialog = mBuilder.show()
 
-            mAlertDialog.setCanceledOnTouchOutside(false)
 
             mAlertDialog.tv_title_dialog.text = "Bed time"
-            mAlertDialog.number_picker.value = hhbed
-            mAlertDialog.number_picker2.value = mmbed
+
+            var currentString =  AppConfig.getBedTime(this)
+            var separated =
+                currentString!!.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            var x = separated[0].toInt()// this will contain "Fruit"
+            var y = separated[1].toInt()
+            mAlertDialog.number_picker.value = x
+            mAlertDialog.number_picker2.value = y
             mAlertDialog.number_picker.setFormatter(R.string.number_picker_formatter)
             mAlertDialog.number_picker2.setFormatter(R.string.number_picker_formatter)
             mAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -353,7 +365,8 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                 } else {
                     tv_bedtime.text = "$hhbed:$mmbed"
                 }
-
+                var bedtime = tv_bedtime.text.toString()
+                AppConfig.setBedTime(bedtime,this)
                 mAlertDialog.dismiss()
             }
         }
@@ -365,13 +378,13 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
             var tgbtn1: ToggleButton = mDialogView.findViewById(R.id.tgbtn_1)
             var tgbtn130: ToggleButton = mDialogView.findViewById(R.id.tgbtn_130)
             var tgbtn2: ToggleButton = mDialogView.findViewById(R.id.tgbtn_2)
-            var tgbtn3: ToggleButton = mDialogView.findViewById(R.id.tgbtn_3)
+//            var tgbtn3: ToggleButton = mDialogView.findViewById(R.id.tgbtn_3)
 
             var rl_30: RelativeLayout = mDialogView.findViewById(R.id.rl_30)
             var rl_1: RelativeLayout = mDialogView.findViewById(R.id.rl_1)
             var rl_130: RelativeLayout = mDialogView.findViewById(R.id.rl_130)
             var rl_2: RelativeLayout = mDialogView.findViewById(R.id.rl_2)
-            var rl_3: RelativeLayout = mDialogView.findViewById(R.id.rl_3)
+//            var rl_3: RelativeLayout = mDialogView.findViewById(R.id.rl_3)
 
             btnAccept = mDialogView.findViewById(R.id.btn_accept_interval_time)
             val mBuilder = AlertDialog.Builder(this)
@@ -383,37 +396,37 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                 tgbtn1.isChecked = false
                 tgbtn130.isChecked = false
                 tgbtn2.isChecked = false
-                tgbtn3.isChecked = false
+//                tgbtn3.isChecked = false
 
             } else if (time == "60 min") {
                 tgbtn30.isChecked = false
                 tgbtn1.isChecked = true
                 tgbtn130.isChecked = false
                 tgbtn2.isChecked = false
-                tgbtn3.isChecked = false
+//                tgbtn3.isChecked = false
 
             } else if (time == "90 min") {
                 tgbtn30.isChecked = false
                 tgbtn1.isChecked = false
                 tgbtn130.isChecked = true
                 tgbtn2.isChecked = false
-                tgbtn3.isChecked = false
+//                tgbtn3.isChecked = false
             } else if (time == "120 min") {
                 tgbtn30.isChecked = false
                 tgbtn1.isChecked = false
                 tgbtn130.isChecked = false
                 tgbtn2.isChecked = true
-                tgbtn3.isChecked = false
+//                tgbtn3.isChecked = false
 
-            } else if (time == "180 min") {
-                tgbtn30.isChecked = false
-                tgbtn1.isChecked = false
-                tgbtn130.isChecked = false
-                tgbtn2.isChecked = false
-                tgbtn3.isChecked = true
             }
+//            else if (time == "180 min") {
+//                tgbtn30.isChecked = false
+//                tgbtn1.isChecked = false
+//                tgbtn130.FisChecked = false
+//                tgbtn2.isChecked = false
+//                tgbtn3.isChecked = true
+//            }
             mAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            var temp = 0
             rl_30.setOnClickListener {
                 temp = 1
 //                tv_time_interval.text = "30 min"
@@ -421,7 +434,7 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                 tgbtn1.isChecked = false
                 tgbtn130.isChecked = false
                 tgbtn2.isChecked = false
-                tgbtn3.isChecked = false
+//                tgbtn3.isChecked = false
 //                AppConfig.setIntervalTime("30 min", this)
             }
             rl_1.setOnClickListener {
@@ -431,7 +444,7 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                 tgbtn1.isChecked = true
                 tgbtn130.isChecked = false
                 tgbtn2.isChecked = false
-                tgbtn3.isChecked = false
+//                tgbtn3.isChecked = false
 
             }
             rl_130.setOnClickListener {
@@ -441,7 +454,7 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                 tgbtn1.isChecked = false
                 tgbtn130.isChecked = true
                 tgbtn2.isChecked = false
-                tgbtn3.isChecked = false
+//                tgbtn3.isChecked = false
 
             }
             rl_2.setOnClickListener {
@@ -451,18 +464,18 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                 tgbtn1.isChecked = false
                 tgbtn130.isChecked = false
                 tgbtn2.isChecked = true
-                tgbtn3.isChecked = false
+//                tgbtn3.isChecked = false
             }
-            rl_3.setOnClickListener {
-                temp = 5
-
-                tgbtn30.isChecked = false
-                tgbtn1.isChecked = false
-                tgbtn130.isChecked = false
-                tgbtn2.isChecked = false
-                tgbtn3.isChecked = true
-
-            }
+//            rl_3.setOnClickListener {
+//                temp = 5
+//
+//                tgbtn30.isChecked = false
+//                tgbtn1.isChecked = false
+//                tgbtn130.isChecked = false
+//                tgbtn2.isChecked = false
+//                tgbtn3.isChecked = true
+//
+//            }
             btnAccept.setOnClickListener {
                 if (temp == 1) {
                     tv_time_interval.text = "30 min"
@@ -475,11 +488,12 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
                     AppConfig.setIntervalTime("90 min", this)
                 } else if (temp == 4) {
                     AppConfig.setIntervalTime("120 min", this)
-                    tv_time_interval.text = "2 hour"
-                } else if (temp == 5) {
-                    AppConfig.setIntervalTime("180 min", this)
-                    tv_time_interval.text = "3 hour"
+                    tv_time_interval.text = "2 hours"
                 }
+//                else if (temp == 5) {
+//                    AppConfig.setIntervalTime("180 min", this)
+//                    tv_time_interval.text = "3 hour"
+//                }
                 mAlertDialog.dismiss()
             }
 
@@ -494,6 +508,9 @@ class PersonalDataActivity : AppCompatActivity(), waterDrank {
             AppConfig.setHeight(height, this@PersonalDataActivity)
             AppConfig.setWakeUp(tv_wavep_main.text.toString(), this@PersonalDataActivity)
             AppConfig.setBedTime(tv_bedtime.text.toString(), this@PersonalDataActivity)
+            if( temp==0){
+                AppConfig.setIntervalTime("60 min", this)
+            }
 
 //            var time = tv_time_interval.text
 //            if(time == "30 min"){

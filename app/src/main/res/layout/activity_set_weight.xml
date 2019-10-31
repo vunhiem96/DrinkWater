@@ -52,11 +52,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:mcv_showOtherDates="all"
-        app:mcv_selectionColor="#FF5668"
-        app:mcv_arrowColor="#FFF"
+        app:mcv_selectionColor="#FF5722"
         app:mcv_tileSize="30sp"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        android:theme="@style/CalenderViewCustom"
+        android:dateTextAppearance="@style/CalenderViewDateCustomText"
+        android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+       />
 
     <LinearLayout
         android:layout_marginBottom="-30dp"

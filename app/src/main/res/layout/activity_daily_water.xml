@@ -104,7 +104,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.7">
 <Button
-    android:layout_marginTop="@dimen/_20sdp"
+    android:layout_marginTop="@dimen/_15sdp"
     android:id="@+id/btn_dailywater"
     android:textColor="#FFF"
     android:text="ACCEPT"

@@ -130,7 +130,7 @@ class DrinkWaterService : Service() {
                     val calendar = Calendar.getInstance()
                     val day = calendar.get(Calendar.DAY_OF_WEEK)
 
-                    if (y == "23:59" && day == Calendar.MONDAY) {
+                    if (y == "23:58" && day == Calendar.MONDAY) {
                         val intent1 = Intent()
                         intent1.action = "addWaterMon"
                         applicationContext!!.sendBroadcast(intent1)
@@ -140,32 +140,32 @@ class DrinkWaterService : Service() {
                         intent3.action = "resetall"
                         applicationContext!!.sendBroadcast(intent3)
                     }
-                    if (y == "23:59" && day == Calendar.TUESDAY) {
+                    if (y == "23:58" && day == Calendar.TUESDAY) {
                         val intent1 = Intent()
                         intent1.action = "addWaterTue"
                         applicationContext!!.sendBroadcast(intent1)
                     }
-                    if (y == "23:59" && day == Calendar.WEDNESDAY) {
+                    if (y == "23:58" && day == Calendar.WEDNESDAY) {
                         val intent1 = Intent()
                         intent1.action = "addWaterWed"
                         applicationContext!!.sendBroadcast(intent1)
                     }
-                    if (y == "23:59" && day == Calendar.THURSDAY) {
+                    if (y == "23:58" && day == Calendar.THURSDAY) {
                         val intent1 = Intent()
                         intent1.action = "addWaterThu"
                         applicationContext!!.sendBroadcast(intent1)
                     }
-                    if (y == "23:59" && day == Calendar.FRIDAY) {
+                    if (y == "23:58" && day == Calendar.FRIDAY) {
                         val intent1 = Intent()
                         intent1.action = "addWaterFri"
                         applicationContext!!.sendBroadcast(intent1)
                     }
-                    if (y == "23:59" && day == Calendar.SATURDAY) {
+                    if (y == "23:58" && day == Calendar.SATURDAY) {
                         val intent1 = Intent()
                         intent1.action = "addWaterSar"
                         applicationContext!!.sendBroadcast(intent1)
                     }
-                    if (y == "23:59" && day == Calendar.SUNDAY) {
+                    if (y == "23:58" && day == Calendar.SUNDAY) {
                         val intent1 = Intent()
                         intent1.action = "addWaterSun"
                         applicationContext!!.sendBroadcast(intent1)
@@ -185,10 +185,12 @@ class DrinkWaterService : Service() {
     internal var receiverService: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(p0: Context?, intent: Intent) {
             if (intent.action == "resetWater") {
+                db = DBHelper(p0!!)
                 AppConfig.setWaterlevel(0, applicationContext)
                 Log.i("xxxcccc", "onReciver")
                 AppConfig.setCount(0, applicationContext)
                 AppConfig.setCheckFull(false, applicationContext)
+                db.deleteHistory()
 //                CreateChanel()
             }
             if (intent.action == "notificationWater") {
@@ -329,123 +331,123 @@ class DrinkWaterService : Service() {
 
 
             }
-            if (intent.action == "addWaterMon") {
-                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
-                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
-                var waterGold = AppConfig.getGoldDrink(applicationContext)
-                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
-                var waterCompletion = (waterDrink / waterGold2) * 100
-                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
-                var count = AppConfig.getCount(applicationContext)
-                val water = WaterWeek(2, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterWeek(water)
-                val c = Calendar.getInstance()
-                val sdf = SimpleDateFormat("dd")
-                val currentDate = sdf.format(c.getTime()).toInt()
-                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterMonth(waterMonth)
-            }
-            if (intent.action == "addWaterTue") {
-                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
-                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
-                var waterGold = AppConfig.getGoldDrink(applicationContext)
-                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
-                var waterCompletion = (waterDrink / waterGold2) * 100
-                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
-                var count = AppConfig.getCount(applicationContext)
-                val water = WaterWeek(3, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterWeek(water)
-                val c = Calendar.getInstance()
-                val sdf = SimpleDateFormat("dd")
-                val currentDate = sdf.format(c.getTime()).toInt()
-                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterMonth(waterMonth)
-            }
-            if (intent.action == "addWaterWed") {
-                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
-                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
-                var waterGold = AppConfig.getGoldDrink(applicationContext)
-                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
-                var waterCompletion = (waterDrink / waterGold2) * 100
-                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
-                var count = AppConfig.getCount(applicationContext)
-                val water = WaterWeek(4, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterWeek(water)
-                val c = Calendar.getInstance()
-                val sdf = SimpleDateFormat("dd")
-                val currentDate = sdf.format(c.getTime()).toInt()
-                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterMonth(waterMonth)
-            }
-            if (intent.action == "addWaterThu") {
-                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
-                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
-                var waterGold = AppConfig.getGoldDrink(applicationContext)
-                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
-                var waterCompletion = (waterDrink / waterGold2) * 100
-                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
-                var count = AppConfig.getCount(applicationContext)
-                val water = WaterWeek(5, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterWeek(water)
-                val c = Calendar.getInstance()
-                val sdf = SimpleDateFormat("dd")
-                val currentDate = sdf.format(c.getTime()).toInt()
-                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterMonth(waterMonth)
-            }
-            if (intent.action == "addWaterFri") {
-                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
-                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
-                var waterGold = AppConfig.getGoldDrink(applicationContext)
-                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
-                var waterCompletion = (waterDrink / waterGold2) * 100
-                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
-                var count = AppConfig.getCount(applicationContext)
-                Log.i("djdjdj", "$waterCompletion")
-                Log.i("djdjdj", "$waterCompletion2")
-                Log.i("djdjdj", "$waterGold2")
-                Log.i("djdjdj", "$waterDrink")
-
-                val water = WaterWeek(6, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterWeek(water)
-                val c = Calendar.getInstance()
-                val sdf = SimpleDateFormat("dd")
-                val currentDate = sdf.format(c.getTime()).toInt()
-                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterMonth(waterMonth)
-            }
-            if (intent.action == "addWaterSar") {
-                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
-                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
-                var waterGold = AppConfig.getGoldDrink(applicationContext)
-                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
-                var waterCompletion = (waterDrink / waterGold2) * 100
-                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
-                var count = AppConfig.getCount(applicationContext)
-                val water = WaterWeek(7, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterWeek(water)
-                val c = Calendar.getInstance()
-                val sdf = SimpleDateFormat("dd")
-                val currentDate = sdf.format(c.getTime()).toInt()
-                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterMonth(waterMonth)
-            }
-            if (intent.action == "addWaterSun") {
-                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
-                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
-                var waterGold = AppConfig.getGoldDrink(applicationContext)
-                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
-                var waterCompletion = (waterDrink / waterGold2) * 100
-                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
-                var count = AppConfig.getCount(applicationContext)
-                val water = WaterWeek(8, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterWeek(water)
-                val c = Calendar.getInstance()
-                val sdf = SimpleDateFormat("dd")
-                val currentDate = sdf.format(c.getTime()).toInt()
-                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
-                db.updateWaterMonth(waterMonth)
-            }
+//            if (intent.action == "addWaterMon") {
+//                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
+//                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
+//                var waterGold = AppConfig.getGoldDrink(applicationContext)
+//                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
+//                var waterCompletion = (waterDrink / waterGold2) * 100
+//                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
+//                var count = AppConfig.getCount(applicationContext)
+//                val water = WaterWeek(2, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterWeek(water)
+//                val c = Calendar.getInstance()
+//                val sdf = SimpleDateFormat("dd")
+//                val currentDate = sdf.format(c.getTime()).toInt()
+//                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterMonth(waterMonth)
+//            }
+//            if (intent.action == "addWaterTue") {
+//                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
+//                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
+//                var waterGold = AppConfig.getGoldDrink(applicationContext)
+//                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
+//                var waterCompletion = (waterDrink / waterGold2) * 100
+//                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
+//                var count = AppConfig.getCount(applicationContext)
+//                val water = WaterWeek(3, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterWeek(water)
+//                val c = Calendar.getInstance()
+//                val sdf = SimpleDateFormat("dd")
+//                val currentDate = sdf.format(c.getTime()).toInt()
+//                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterMonth(waterMonth)
+//            }
+//            if (intent.action == "addWaterWed") {
+//                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
+//                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
+//                var waterGold = AppConfig.getGoldDrink(applicationContext)
+//                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
+//                var waterCompletion = (waterDrink / waterGold2) * 100
+//                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
+//                var count = AppConfig.getCount(applicationContext)
+//                val water = WaterWeek(4, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterWeek(water)
+//                val c = Calendar.getInstance()
+//                val sdf = SimpleDateFormat("dd")
+//                val currentDate = sdf.format(c.getTime()).toInt()
+//                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterMonth(waterMonth)
+//            }
+//            if (intent.action == "addWaterThu") {
+//                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
+//                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
+//                var waterGold = AppConfig.getGoldDrink(applicationContext)
+//                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
+//                var waterCompletion = (waterDrink / waterGold2) * 100
+//                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
+//                var count = AppConfig.getCount(applicationContext)
+//                val water = WaterWeek(5, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterWeek(water)
+//                val c = Calendar.getInstance()
+//                val sdf = SimpleDateFormat("dd")
+//                val currentDate = sdf.format(c.getTime()).toInt()
+//                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterMonth(waterMonth)
+//            }
+//            if (intent.action == "addWaterFri") {
+//                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
+//                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
+//                var waterGold = AppConfig.getGoldDrink(applicationContext)
+//                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
+//                var waterCompletion = (waterDrink / waterGold2) * 100
+//                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
+//                var count = AppConfig.getCount(applicationContext)
+//                Log.i("djdjdj", "$waterCompletion")
+//                Log.i("djdjdj", "$waterCompletion2")
+//                Log.i("djdjdj", "$waterGold2")
+//                Log.i("djdjdj", "$waterDrink")
+//
+//                val water = WaterWeek(6, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterWeek(water)
+//                val c = Calendar.getInstance()
+//                val sdf = SimpleDateFormat("dd")
+//                val currentDate = sdf.format(c.getTime()).toInt()
+//                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterMonth(waterMonth)
+//            }
+//            if (intent.action == "addWaterSar") {
+//                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
+//                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
+//                var waterGold = AppConfig.getGoldDrink(applicationContext)
+//                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
+//                var waterCompletion = (waterDrink / waterGold2) * 100
+//                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
+//                var count = AppConfig.getCount(applicationContext)
+//                val water = WaterWeek(7, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterWeek(water)
+//                val c = Calendar.getInstance()
+//                val sdf = SimpleDateFormat("dd")
+//                val currentDate = sdf.format(c.getTime()).toInt()
+//                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterMonth(waterMonth)
+//            }
+//            if (intent.action == "addWaterSun") {
+//                var waterDrink2 = AppConfig.getWaterLevel(applicationContext)!!.toInt()
+//                var waterDrink = AppConfig.getWaterLevel(applicationContext)!!.toFloat()
+//                var waterGold = AppConfig.getGoldDrink(applicationContext)
+//                val waterGold2 = waterGold!!.replace("[.]".toRegex(), "").toFloat()
+//                var waterCompletion = (waterDrink / waterGold2) * 100
+//                var waterCompletion2 = Math.round(waterCompletion.toDouble()).toInt()
+//                var count = AppConfig.getCount(applicationContext)
+//                val water = WaterWeek(8, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterWeek(water)
+//                val c = Calendar.getInstance()
+//                val sdf = SimpleDateFormat("dd")
+//                val currentDate = sdf.format(c.getTime()).toInt()
+//                val waterMonth = WaterMonth(currentDate, waterDrink2, waterCompletion2, count!!)
+//                db.updateWaterMonth(waterMonth)
+//            }
             if (intent.action == "resetall") {
                 val mon = WaterWeek(2, 0, 0, 0)
                 val tue = WaterWeek(3, 0, 0, 0)

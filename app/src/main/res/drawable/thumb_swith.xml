@@ -48,8 +48,8 @@
         android:dither="true"
         android:useLevel="false">
         <gradient
-            android:startColor="#405ED5"
-            android:endColor="#87C3FF"
+            android:startColor="#1D44E7"
+            android:endColor="#1E84DB"
             android:angle="270"/>
         <corners
             android:radius="20dp"/>

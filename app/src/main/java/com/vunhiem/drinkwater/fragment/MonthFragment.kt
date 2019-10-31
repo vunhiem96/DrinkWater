@@ -114,8 +114,9 @@ class MonthFragment : Fragment() {
         list.add(hai8)
         list.add(hai9)
         list.add(bamuoi)
-        var count = 30
-        for (i in 0..29) {
+        list.add(ba1)
+        var count = 31
+        for (i in 0..30) {
             if (list[i] == 0) {
                 count--
             }
@@ -123,7 +124,7 @@ class MonthFragment : Fragment() {
         if(count != 0)
         {
            var comPletion = 0
-            for (i in 0..29){
+            for (i in 0..30){
                 comPletion+=list[i]
             }
 
@@ -138,12 +139,12 @@ class MonthFragment : Fragment() {
             var countDrink = db.getAllCountMonth()
             var countTBC = countDrink/count
             tvCount.text = "$countTBC /Day"
-            textChart ="Month"
+            textChart ="Average completion (%)"
         }else{
             tvCount.text = "0 /Day"
             tvMlWeek.text = "0 ml"
             tvCompleteMonth.text = "0 %"
-            textChart = "Data will saved at end of the day"
+            textChart = "Average completion (%)"
         }
 
 

@@ -35,6 +35,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <Button
+        android:textAllCaps="false"
         android:layout_marginRight="20dp"
         android:id="@+id/btn_yes"
         android:layout_width="100dp"
@@ -43,9 +44,10 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/round_bg_button"
-        android:text="Yes"
+        android:text="Rate now"
         android:textColor="#FFF" />
     <Button
+        android:textAllCaps="false"
         android:layout_marginLeft="20dp"
         android:layout_gravity="center_vertical"
         android:id="@+id/btn_no"
@@ -54,7 +56,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/round_bg_button"
-        android:text="No"
+        android:text="@string/later_exit"
         android:textColor="#FFF" />
 </LinearLayout>
 

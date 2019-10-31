@@ -55,6 +55,7 @@
             android:textSize="@dimen/_40ssp" />
 
         <TextView
+            android:layout_marginStart="@dimen/_4sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_17sdp"
@@ -62,7 +63,8 @@
             android:layout_toRightOf="@id/tv_kg_weightfragment"
             android:text="kg"
             android:textColor="#FFFF"
-            android:textSize="@dimen/_15ssp" />
+            android:textSize="@dimen/_15ssp"
+            android:layout_marginLeft="@dimen/_4sdp" />
 
         <LinearLayout
             android:id="@+id/ln_addweight"
@@ -204,7 +206,7 @@
                         android:layout_width="@dimen/_280sdp"
                         android:layout_height="45dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/ic_bmi" />
+                        android:src="@drawable/ic_bmi2" />
 
                     <RelativeLayout
                         android:layout_width="@dimen/_280sdp"

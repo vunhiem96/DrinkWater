@@ -98,8 +98,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/_17sdp"
             android:text="Accept"
-            android:layout_width="170dp"
-            android:layout_height="35dp"/>
+            android:layout_width="@dimen/_145sdp"
+            android:layout_height="@dimen/_28sdp"/>
     </LinearLayout>
     </androidx.cardview.widget.CardView>
 

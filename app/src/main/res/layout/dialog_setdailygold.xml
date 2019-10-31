@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+
             android:id="@+id/tv_title_dialog2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,6 +30,9 @@
             android:layout_width="match_parent"
             android:layout_height="100dp">
             <EditText
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:maxLength="4"
                 android:cursorVisible="false"
                 android:backgroundTint="#E6ECFF"
                 android:inputType="number"
@@ -55,14 +59,14 @@
         <Button
             android:textAllCaps="false"
             android:id="@+id/btn_accept_daily"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="@dimen/_15sdp"
             android:textColor="#FFF"
             android:background="@drawable/round_bg_button"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:text="Accept"
-            android:layout_width="170dp"
-            android:layout_height="35dp"/>
+            android:layout_width="@dimen/_145sdp"
+            android:layout_height="@dimen/_28sdp"/>
     </LinearLayout>
     </androidx.cardview.widget.CardView>
 

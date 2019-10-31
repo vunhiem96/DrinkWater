@@ -57,7 +57,9 @@ class WakeUpReceiver : BroadcastReceiver() {
                 val sdf = SimpleDateFormat("HH:mm a")
                 val currentDate = sdf.format(c.getTime())
                 remoteViews.setTextViewText(R.id.tv_time_noti, currentDate)
-                notification.defaults = Notification.DEFAULT_LIGHTS
+//                notification.defaults = notification.defaults or Notification.DEFAULT_SOUND
+//                notification.defaults =
+//                    notification.defaults or Notification.DEFAULT_VIBRATE
 
 
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -65,7 +67,7 @@ class WakeUpReceiver : BroadcastReceiver() {
 //            }
 
 //            remoteViews.setTextViewText(R.id.tv_time_noti, currentDate)
-                NotificationManagerCompat.from(context).notify(1000, notification)
+//                NotificationManagerCompat.from(context).notify(1000, notification)
             } else {
                 val name = "Drink Water_channel"
                 val descriptionText = "A cool channel"
@@ -97,7 +99,7 @@ class WakeUpReceiver : BroadcastReceiver() {
                 notification.defaults = Notification.DEFAULT_LIGHTS
 
 //            remoteViews.setTextViewText(R.id.tv_time_noti, currentDate)
-                NotificationManagerCompat.from(context).notify(1000, notification)
+//                NotificationManagerCompat.from(context).notify(1000, notification)
             }
 
 

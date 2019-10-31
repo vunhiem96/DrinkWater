@@ -13,24 +13,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="5dp"
         android:layout_weight="3.5">
         <com.github.mikephil.charting.charts.BarChart
+            android:layout_marginTop="@dimen/_5sdp"
             android:id="@+id/barChartMonth"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
         android:layout_weight="3"
         android:orientation="vertical"
         android:weightSum="3">
 
         <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -38,7 +40,7 @@
             <ImageView
                 android:layout_width="@dimen/_53sdp"
                 android:layout_height="@dimen/_53sdp"
-                android:padding="5dp"
+                android:padding="@dimen/_6sdp"
                 android:id="@+id/img1"
                 android:layout_centerVertical="true"
                 android:layout_marginHorizontal="10dp"
@@ -48,7 +50,7 @@
                 android:id="@+id/tv_ml_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_toRightOf="@id/img1"
                 android:text="1500 ml"
                 android:textColor="#2329D6"
@@ -70,7 +72,7 @@
             android:layout_weight="1">
 
             <ImageView
-                android:padding="5dp"
+                android:padding="@dimen/_6sdp"
                 android:id="@+id/img2"
                 android:layout_width="@dimen/_53sdp"
                 android:layout_height="@dimen/_53sdp"
@@ -82,7 +84,7 @@
                 android:id="@+id/tv_count_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_toRightOf="@id/img2"
                 android:text="5/Day"
                 android:textColor="#2329D6"
@@ -104,7 +106,7 @@
             android:layout_weight="1">
 
             <ImageView
-                android:padding="5dp"
+                android:padding="@dimen/_6sdp"
                 android:id="@+id/img"
                 android:layout_width="@dimen/_53sdp"
                 android:layout_height="@dimen/_53sdp"
@@ -116,7 +118,7 @@
                 android:id="@+id/tv_completion_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_toRightOf="@id/img"
                 android:text="60%"
                 android:textColor="#2329D6"

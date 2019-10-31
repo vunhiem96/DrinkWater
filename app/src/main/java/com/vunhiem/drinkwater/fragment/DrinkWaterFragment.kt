@@ -1,5 +1,7 @@
 package com.vunhiem.drinkwater.fragment
 
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -16,9 +18,11 @@ import android.widget.ToggleButton
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.vunhiem.drinkwater.R
+import com.vunhiem.drinkwater.screen.dailywatermain.AlarmReceiver2
+import com.vunhiem.drinkwater.screen.dailywatermain.NewDayReceiver
+import com.vunhiem.drinkwater.service.YourJobService
 import com.vunhiem.drinkwater.utils.AppConfig
 import hiennguyen.me.circleseekbar.CircleSeekBar
-import kotlinx.android.synthetic.main.activity_drinkwater_main.*
 import kotlinx.android.synthetic.main.dialog_home.*
 import kotlinx.android.synthetic.main.fragment_drink_water.*
 import me.itangqi.waveloadingview.WaveLoadingView
@@ -27,6 +31,12 @@ import java.util.*
 
 
 class DrinkWaterFragment : Fragment() {
+    lateinit var drinkWater: DrinkWater
+    private var alarmMgr2: AlarmManager? = null
+    private var alarmIntent2: PendingIntent? = null
+
+    private var alarmMgr0h00: AlarmManager? = null
+    private var alarmIntent0h00: PendingIntent? = null
 
     lateinit var tgBtn100: ToggleButton
     lateinit var tgBtn200: ToggleButton
@@ -39,7 +49,7 @@ class DrinkWaterFragment : Fragment() {
     lateinit var img: ImageView
     lateinit var tvGold: TextView
     lateinit var tvLastDrink: TextView
-    lateinit var waveView:WaveLoadingView
+    lateinit var waveView: WaveLoadingView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -79,6 +89,49 @@ class DrinkWaterFragment : Fragment() {
     private fun loadDialog() {
         var dialog = context?.let { AppConfig.getSettingIcon(it) }
         if (dialog == true) {
+
+            alarmMgr2 = context!!.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            alarmIntent2 = Intent(context, AlarmReceiver2::class.java).let { intent ->
+                PendingIntent.getBroadcast(context, 1, intent, 0)
+            }
+            val calendar: Calendar = Calendar.getInstance().apply {
+                timeInMillis = System.currentTimeMillis()
+                set(Calendar.HOUR_OF_DAY, 23)
+                set(Calendar.MINUTE, 55)
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                alarmMgr2?.setRepeating(
+//                    AlarmManager.RTC_WAKEUP,
+//                calendar.timeInMillis,
+//                AlarmManager.INTERVAL_DAY,
+//                alarmIntent2
+//                )
+            }
+
+            alarmMgr0h00 = context!!.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            alarmIntent0h00 = Intent(context, NewDayReceiver::class.java).let { intent ->
+                PendingIntent.getBroadcast(context, 5, intent, 0)
+            }
+            val calendar2: Calendar = Calendar.getInstance().apply {
+                timeInMillis = System.currentTimeMillis()
+                set(Calendar.HOUR_OF_DAY, 23)
+                set(Calendar.MINUTE, 59)
+                set(Calendar.SECOND, 59)
+                set(Calendar.MILLISECOND, 0)
+
+
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                alarmMgr0h00?.setRepeating(
+                    AlarmManager.RTC_WAKEUP,
+                    calendar2.timeInMillis,
+                    AlarmManager.INTERVAL_DAY,
+                    alarmIntent0h00
+                )
+            }
+
+            YourJobService.schedule(context!!, calendar2.timeInMillis)
+            drinkWater = activity as DrinkWater
             val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_home, null)
 
 
@@ -89,12 +142,23 @@ class DrinkWaterFragment : Fragment() {
             val mAlertDialog = mBuilder!!.show()
             mAlertDialog.window!!.setGravity(Gravity.BOTTOM)
             val layoutParams = mAlertDialog.window!!.attributes
+            val pixel: Int = context!!.getResources().getDisplayMetrics().heightPixels
 
-            layoutParams.y = 300 // bottom margin
+            Log.i("pixel", "$pixel")
+
+
+                var marindiaLog = pixel - (23 * pixel / 24) -(pixel/200)
+                layoutParams.y = marindiaLog
+
+
             mAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             context?.let { AppConfig.setSettingIcon(false, it) }
             mAlertDialog.img_remove_dialog_home.setOnClickListener {
 
+                mAlertDialog.dismiss()
+            }
+            mAlertDialog.img_popup.setOnClickListener {
+                drinkWater.drinkWater(true)
                 mAlertDialog.dismiss()
             }
 
@@ -213,7 +277,7 @@ class DrinkWaterFragment : Fragment() {
 
     private fun check() {
         var water = AppConfig.getWaterup(context!!)
-        if (water == 100){
+        if (water == 100) {
             tg_btn_100.isChecked = true
             tg_btn_200.isChecked = false
             tgbtn_300.isChecked = false
@@ -222,8 +286,7 @@ class DrinkWaterFragment : Fragment() {
             intent2.action = "imgChange"
             intent2.putExtra("img", 1)
             context!!.sendBroadcast(intent2)
-        }
-        else if (water == 200){
+        } else if (water == 200) {
             tg_btn_100.isChecked = false
             tg_btn_200.isChecked = true
             tgbtn_300.isChecked = false
@@ -232,7 +295,7 @@ class DrinkWaterFragment : Fragment() {
             intent2.action = "imgChange"
             intent2.putExtra("img", 2)
             context!!.sendBroadcast(intent2)
-        } else if (water == 300){
+        } else if (water == 300) {
             tg_btn_100.isChecked = false
             tg_btn_200.isChecked = false
             tgbtn_300.isChecked = true
@@ -241,8 +304,7 @@ class DrinkWaterFragment : Fragment() {
             intent2.action = "imgChange"
             intent2.putExtra("img", 3)
             context!!.sendBroadcast(intent2)
-            }
-        else{
+        } else {
             tg_btn_100.isChecked = false
             tg_btn_200.isChecked = false
             tgbtn_300.isChecked = false

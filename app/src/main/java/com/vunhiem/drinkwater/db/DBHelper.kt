@@ -2,8 +2,10 @@ package com.vunhiem.drinkwater.db
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.vunhiem.drinkwater.Model.WaterHistory
 import com.vunhiem.drinkwater.Model.WaterMonth
 import com.vunhiem.drinkwater.Model.WaterWeek
 import com.vunhiem.drinkwater.Model.Weight
@@ -21,11 +23,15 @@ class DBHelper(context: Context):SQLiteOpenHelper(context, DATABASE_NAME, null ,
             ("CREATE TABLE $TABLE_NAME4 ($COL_ID4 INTEGER PRIMARY KEY,$COL_WEIGHT_MONTH FLOAT)")
         val CREATE_TABLE_QUERY5 =
             ("CREATE TABLE $TABLE_NAME5 ($COL_ID4 INTEGER PRIMARY KEY,$COL_WEIGHT_MONTH FLOAT)")
+        val CREATE_TABLE_QUERY6 =
+            ("CREATE TABLE $HISTORY_TABLE_NAME ($COL_ID INTEGER PRIMARY KEY AUTOINCREMENT,$COL_TIME TEXT," +
+                    "$COL_WATER_UP INTEGER)")
         db!!.execSQL(CREATE_TABLE_QUERY)
         db!!.execSQL(CREATE_TABLE_QUERY2)
         db!!.execSQL(CREATE_TABLE_QUERY3)
         db!!.execSQL(CREATE_TABLE_QUERY4)
         db!!.execSQL(CREATE_TABLE_QUERY5)
+        db!!.execSQL(CREATE_TABLE_QUERY6)
 
     }
 
@@ -35,9 +41,50 @@ class DBHelper(context: Context):SQLiteOpenHelper(context, DATABASE_NAME, null ,
         db!!.execSQL("DROP TABLE IF EXISTS $TABLE_NAME3")
         db!!.execSQL("DROP TABLE IF EXISTS $TABLE_NAME4")
         db!!.execSQL("DROP TABLE IF EXISTS $TABLE_NAME5")
+        db!!.execSQL("DROP TABLE IF EXISTS $HISTORY_TABLE_NAME")
         onCreate(db)
     }
 
+    val allHistory:List<WaterHistory>
+        get() {
+            val lstHistory = ArrayList<WaterHistory>()
+            val selectQuery = "SELECT * FROM $HISTORY_TABLE_NAME"
+            val db: SQLiteDatabase = this.writableDatabase
+            val cursor: Cursor = db.rawQuery(selectQuery, null)
+            if (cursor.moveToFirst()) {
+                do {
+                    val history = WaterHistory()
+                    history.id = cursor.getInt(cursor.getColumnIndex(COL_ID))
+                    history.time = cursor.getString(cursor.getColumnIndex(COL_TIME))
+                    history.waterUp = cursor.getInt(cursor.getColumnIndex(COL_WATER_UP))
+
+                    lstHistory.add(history)
+                } while (cursor.moveToNext())
+            }
+            db.close()
+            return lstHistory
+        }
+
+    fun addHistoty(history: WaterHistory){
+        val db: SQLiteDatabase = this.writableDatabase
+        val values = ContentValues()
+
+        values.put(COL_TIME, history.time)
+        values.put(COL_WATER_UP, history.waterUp)
+
+        db.insert(HISTORY_TABLE_NAME, null, values)
+        db.close()
+    }
+    fun deleteHistory(){
+        val db = this.writableDatabase
+        db.execSQL("DELETE FROM $HISTORY_TABLE_NAME") //delete all rows in a table
+        db.close()
+    }
+    fun deleteOneHistory(id:Int){
+        val db = this.writableDatabase
+        db.execSQL("DELETE FROM $HISTORY_TABLE_NAME WHERE $COL_ID =$id ") //delete all rows in a table
+        db.close()
+    }
     fun createDefaultNotesIfNeed() {
         val count = this.getNotesCount()
         if (count == 0) {
@@ -209,6 +256,16 @@ fun getWaterDay(id: Int): WaterWeek {
 
         return  db.update(TABLE_NAME3, values, "$COL_ID3=?", arrayOf(weight.id.toString()))
     }
+
+    fun updateHistory(history: WaterHistory):Int {
+        val db: SQLiteDatabase = this.writableDatabase
+        val values = ContentValues()
+        values.put(COL_ID, history.id)
+        values.put(COL_TIME, history.time)
+        values.put(COL_WATER_UP, history.waterUp)
+
+        return  db.update(HISTORY_TABLE_NAME, values, "$COL_ID3=?", arrayOf(history.id.toString()))
+    }
     fun addWeightWeek(weight: Weight){
         val db: SQLiteDatabase = this.writableDatabase
         val values = ContentValues()
@@ -351,6 +408,9 @@ fun getWaterDay(id: Int): WaterWeek {
         private val COL_WATERDRINK_COMPLETION = "Waterdrinkcompletion"
         private val COL_WATERDRINK_COUNT = "Waterdrinkcount"
         private val COL_WATERDRINK_COUNT2 = "Waterdrinkcount"
+        private val HISTORY_TABLE_NAME="History"
+        private val COL_TIME = "Time"
+        private val COL_WATER_UP= "WaterUP"
 
     }
 }

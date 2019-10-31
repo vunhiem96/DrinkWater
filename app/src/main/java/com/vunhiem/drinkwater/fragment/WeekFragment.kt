@@ -99,12 +99,12 @@ class WeekFragment : Fragment() {
              tvCount.text = "$countTBC /Day"
              tvMl.text = "$waterTBC ml"
              tvComplete.text = "$completeTBC %"
-             textChart = "Weeks"
+             textChart = "Average completion (%)"
          }else{
              tvCount.text = "0 /Day"
              tvMl.text = "0 ml"
              tvComplete.text = "0 %"
-             textChart = "Data will saved at end of the day"
+             textChart = "Average completion (%)"
          }
 
 

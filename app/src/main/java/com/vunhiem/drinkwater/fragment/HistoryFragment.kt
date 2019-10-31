@@ -2,20 +2,23 @@ package com.vunhiem.drinkwater.fragment
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ToggleButton
+import com.vunhiem.drinkwater.Model.WaterHistory
 import com.vunhiem.drinkwater.R
 import kotlinx.android.synthetic.main.fragment_history.*
+import java.util.ArrayList
 
 
 class HistoryFragment : Fragment() {
      lateinit var tgToday:ToggleButton
     lateinit var tgWeek:ToggleButton
     lateinit var tgMonth:ToggleButton
-
+    var listHistory: ArrayList<WaterHistory> = ArrayList()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,6 +63,12 @@ class HistoryFragment : Fragment() {
 
     }
     private fun loadData() {
+
+//        val bundle: Bundle? = arguments
+//        if(bundle != null) {
+//            listHistory = arguments!!.getParcelableArrayList("")!!
+//
+//        }
         val fragment = TodayFragment()
         addFragment(fragment)
     }

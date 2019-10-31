@@ -59,7 +59,24 @@ class AlarmReceiver : BroadcastReceiver() {
                 val sdf = SimpleDateFormat("HH:mm a")
                 val currentDate = sdf.format(c.getTime())
                 remoteViews.setTextViewText(R.id.tv_time_noti, currentDate)
-                notification.defaults = Notification.DEFAULT_LIGHTS
+                var mode = AppConfig.getRemiderMode(context)
+                Log.i("chiaa", "$mode")
+
+                if (mode == 2) {
+
+                    notification.defaults = notification.defaults or Notification.DEFAULT_SOUND
+                    notification.defaults =
+                        notification.defaults or Notification.DEFAULT_VIBRATE
+
+
+                } else if (mode == 1) {
+
+                    notification.defaults = Notification.DEFAULT_VIBRATE
+                    notification.defaults =
+                        notification.defaults or Notification.DEFAULT_VIBRATE
+                } else if (mode == 0) {
+                    notification.defaults = Notification.DEFAULT_LIGHTS
+                }
 
 
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -96,7 +113,24 @@ class AlarmReceiver : BroadcastReceiver() {
                 val sdf = SimpleDateFormat("HH:mm a")
                 val currentDate = sdf.format(c.getTime())
                 remoteViews.setTextViewText(R.id.tv_time_noti, currentDate)
-                notification.defaults = Notification.DEFAULT_LIGHTS
+                var mode = AppConfig.getRemiderMode(context)
+                Log.i("chiaa", "$mode")
+
+                if (mode == 2) {
+
+                    notification.defaults = notification.defaults or Notification.DEFAULT_SOUND
+                    notification.defaults =
+                        notification.defaults or Notification.DEFAULT_VIBRATE
+
+
+                } else if (mode == 1) {
+
+                    notification.defaults = Notification.DEFAULT_VIBRATE
+                    notification.defaults =
+                        notification.defaults or Notification.DEFAULT_VIBRATE
+                } else if (mode == 0) {
+                    notification.defaults = Notification.DEFAULT_LIGHTS
+                }
 
 //            remoteViews.setTextViewText(R.id.tv_time_noti, currentDate)
                 NotificationManagerCompat.from(context).notify(1000, notification)

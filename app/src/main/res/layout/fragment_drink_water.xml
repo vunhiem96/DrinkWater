@@ -54,17 +54,17 @@
                 app:csb_min="0"
                 app:csb_progress="300"
                 app:csb_progressColor="#405ed5"
-                app:csb_progressWidth="@dimen/_12sdp"
+                app:csb_progressWidth="@dimen/_10sdp"
                 app:csb_step="5"
                 app:csb_textColor="@color/color_text"
                 app:csb_textSize="36sp"
-                app:csb_thumbSize="@dimen/_12sdp"
+                app:csb_thumbSize="@dimen/_10sdp"
 
                />
             <me.itangqi.waveloadingview.WaveLoadingView
                 android:id="@+id/waveView"
-                android:layout_width="@dimen/_152sdp"
-                android:layout_height="@dimen/_152sdp"
+                android:layout_width="@dimen/_151sdp"
+                android:layout_height="@dimen/_151sdp"
                 android:layout_centerInParent="true"
                 app:wlv_borderWidth="0dp"
                 app:wlv_progressValue="35"

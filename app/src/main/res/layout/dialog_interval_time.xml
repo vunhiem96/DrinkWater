@@ -131,7 +131,7 @@
                 android:layout_centerVertical="true"
                 android:textColor="#000"
                 android:textSize="@dimen/_13ssp"
-                android:text="After 2 hour"
+                android:text="After 2 hours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <ToggleButton
@@ -152,36 +152,36 @@
                 android:layout_alignParentBottom="true"
                 android:background="#F6F8FF" />
         </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/rl_3"
-            android:layout_width="match_parent"
-            android:layout_height="45dp">
-            <TextView
-                android:layout_marginLeft="25dp"
-                android:layout_centerVertical="true"
-                android:textColor="#000"
-                android:textSize="@dimen/_13ssp"
-                android:text="After 3 hour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <ToggleButton
-                android:clickable="false"
-                android:id="@+id/tgbtn_3"
-                android:layout_marginRight="20dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textOn=""
-                android:textOff=""
-                android:background="@drawable/togglebutton_gender"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
-            <View
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_alignParentBottom="true"
-                android:background="#F6F8FF" />
-        </RelativeLayout>
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/rl_3"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="45dp">-->
+<!--            <TextView-->
+<!--                android:layout_marginLeft="25dp"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:textColor="#000"-->
+<!--                android:textSize="@dimen/_13ssp"-->
+<!--                android:text="After 3 hour"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+<!--            <ToggleButton-->
+<!--                android:clickable="false"-->
+<!--                android:id="@+id/tgbtn_3"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:textOn=""-->
+<!--                android:textOff=""-->
+<!--                android:background="@drawable/togglebutton_gender"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"/>-->
+<!--            <View-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="2dp"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:background="#F6F8FF" />-->
+<!--        </RelativeLayout>-->
 
         <Button
             android:textAllCaps="false"
@@ -192,7 +192,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/_20sdp"
             android:text="Accept"
-            android:layout_width="@dimen/_150sdp"
+            android:layout_width="@dimen/_145sdp"
             android:layout_height="@dimen/_28sdp"/>
     </LinearLayout>
     </androidx.cardview.widget.CardView>

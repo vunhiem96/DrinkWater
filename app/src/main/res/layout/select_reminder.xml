@@ -138,14 +138,14 @@
         <Button
             android:textAllCaps="false"
             android:id="@+id/btn_accept"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="@dimen/_15sdp"
             android:textColor="#FFF"
             android:background="@drawable/round_bg_button"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:text="Accept"
-            android:layout_width="170dp"
-            android:layout_height="35dp"/>
+            android:layout_width="@dimen/_145sdp"
+            android:layout_height="@dimen/_28sdp"/>
     </LinearLayout>
     </androidx.cardview.widget.CardView>
 

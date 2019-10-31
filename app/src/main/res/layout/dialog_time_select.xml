@@ -46,9 +46,9 @@
                     app:np_dividerColor="#ADAAAA"
                     app:np_max="23"
                     app:np_min="00"
-                    app:np_selectedTextColor="#405ED5"
+                    app:np_selectedTextColor="#252450"
                     app:np_selectedTextSize="20sp"
-                    app:np_textColor="#87C3FF"
+                    app:np_textColor="#6B69CC"
                     app:np_textSize="18sp"
                     app:np_value="8" />
                 <TextView
@@ -69,9 +69,9 @@
                     app:np_dividerColor="#ADAAAA"
                     app:np_max="59"
                     app:np_min="00"
-                    app:np_selectedTextColor="#405ED5"
+                    app:np_selectedTextColor="#252450"
                     app:np_selectedTextSize="20sp"
-                    app:np_textColor="#87C3FF"
+                    app:np_textColor="#ABA9FD"
                     app:np_textSize="18sp"
                     app:np_value="0" />
 
@@ -80,11 +80,11 @@
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/btn_accept_time"
-                android:layout_width="170dp"
-                android:layout_height="35dp"
+                android:layout_width="@dimen/_145sdp"
+                android:layout_height="@dimen/_28sdp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
                 android:background="@drawable/round_bg_button"
                 android:text="Accept"
                 android:textColor="#FFF" />
